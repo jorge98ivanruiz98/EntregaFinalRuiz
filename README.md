@@ -1,14 +1,19 @@
 # RunS Games
 
 Sistema E-Commerce de ventas de video juegos en físico para colección, desarrollado con React, Firebase, Sweetalert y tailwind.
+- Se uso Tailwind y sweetalert para una parte visual más amigable.
+- En la parte de Firebase se crearon 2 colecciones "games" (Catálogo) y "buyorders" (Pedidos generados) para el uso de esta aplicación.
 
 ## Features
 
-- Selección de productos por categoría
-- Añadir productos al carrito
+- Listar productos
+- Listar productos por categoría
+- Añadir productos al carrito un producto
 - Manejo de stock
 - Detalles de productos
-- Generar orden de pedido
+- Listado de productos de carrito
+- Remover elementos del carrito
+- Generar orden de pedido con un formulario
 
 
 ## Authors
@@ -21,9 +26,10 @@ Sistema E-Commerce de ventas de video juegos en físico para colección, desarro
 
 ## Start Project
 
-Para levantar el proyecto en un entorno local colocamos en la terminar el siguiente comando
+Para levantar el proyecto en un entorno local colocamos en la terminar los siguientes comandos
 
 ```bash
+  npm install
   npm start
   
 ```

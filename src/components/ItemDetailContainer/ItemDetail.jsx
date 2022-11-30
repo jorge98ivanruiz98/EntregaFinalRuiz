@@ -1,26 +1,20 @@
-import React,{useContext,useState} from "react"
+import React,{useContext} from "react"
 import cartContext from "../../storage/cartContext"
 import ItemCount from "./ItemCount/ItemCount"
 
 function ItemDetail({ item }) {
-  const [isInCart, setIsInCart] = useState(false)
-
   const { cart, addToCart } = useContext(cartContext)
 
-  let itemInCart = cart.find((response) => response.id === response.id)
+  let itemInCart = cart.find((response) => response.id === item.id)
   let stock = 16
   if (itemInCart) stock -= itemInCart.count
 
   function onAddToCart(count) {
-    let priceSubtotal = count*item.price
     const itemForCart = {
       ...item,
-      count,
-      priceSubtotal
+      count
     }
-
     addToCart(itemForCart)
-    setIsInCart(true)
   }
   return (
     <div className="grid h-1 place-items-center">

@@ -43,18 +43,35 @@ export async function getSimgleItemFromAPI(id){
     try {
         const docRef = doc(DB,"games",id)
         const docSnap = await getDoc(docRef);
-        if(docSnap.exists){
+        if(docSnap.exists()){
             return {
                 ...docSnap.data(),
                 id: docSnap.id
             }
         }else{
             throw new Error('No existe Item');
-        }
-        
+        }    
     } catch (error) {
         throw error
     }
+}
+
+export async function getCheckoutById(id){
+  try {
+        const docRef = doc(DB,"buyorders",id)
+        const docSnap = await getDoc(docRef)
+        if(docSnap.exists()){
+          return {
+              ...docSnap.data(),
+              id: docSnap.id
+          }
+      }else{
+          throw new Error('No existe Pedido');
+      }   
+  } catch (error) {
+        throw error
+  }
+
 }
 
 export async function getItemsFromAPIByCategory(categoryId) {

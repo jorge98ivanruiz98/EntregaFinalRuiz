@@ -24,7 +24,7 @@ function ItemCart({ cart }) {
               </p>
             </div>
             <div className="inline-flex items-center text-base font-semibold text-gray-900 ">
-              ${cartItem.priceSubtotal}
+              ${cartItem.count * cartItem.price}
             </div>
             <button
               type="button"

@@ -5,11 +5,12 @@ import BuyForm from "./BuyForm";
 import { useNavigate } from "react-router-dom";
 import ItemCart from "./ItemCart";
 import Swal from "sweetalert2";
+import DataNoFound from "../DataNoFound/DataNoFound";
 
 function CartView() {
     const {cart, clear, totalPriceInCart }=useContext(cartContext)
     const navigate = useNavigate();
-    if(cart.length ===0) return (<>No se encontró data</>)
+    if(cart.length ===0) return (<DataNoFound/>)
 
     function createBuyOrder(userData) {
         const buyData = {
@@ -22,11 +23,14 @@ function CartView() {
         createBuyOrderFirestoreWithStock(buyData).then((orderId) => {
           clear();
           navigate(`/checkout/${orderId}`);
-          console.log(`El orden del pedido es ${orderId}`)
           Swal.fire({
             title: `Gracias por tu compra`,
             text: `El identificador de tu orden es ${orderId}`,
             icon: "success",
+            
+            showConfirmButton: false,
+            timer: 1500,
+
             footer: "Revisa tu pedido"
           });
         });

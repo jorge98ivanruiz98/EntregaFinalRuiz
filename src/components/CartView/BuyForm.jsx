@@ -5,7 +5,6 @@ function BuyForm(props) {
     name: "",
     email: "",
   });
-  console.log(userData);
   function onInputChange(evt) {
     const inputName = evt.target.name;
     const value = evt.target.value;
